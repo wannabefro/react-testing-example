@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creating a new todo 1`] = `
+<DocumentFragment>
+  <div>
+    <header
+      class="header"
+    >
+      <h1>
+        Todos
+      </h1>
+    </header>
+    <input
+      class="new-todo"
+      placeholder="What needs to be done?"
+      value=""
+    />
+    <section
+      class="main"
+      data-testid="todosList"
+    >
+      <ul
+        class="todo-list"
+      >
+        <li>
+          <label>
+            React testing
+          </label>
+        </li>
+      </ul>
+    </section>
+  </div>
+</DocumentFragment>
+`;

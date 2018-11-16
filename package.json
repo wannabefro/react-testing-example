@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "todomvc-app-css": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,5 +22,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "jest-dom": "^2.1.1",
+    "react-testing-library": "^5.2.3"
+  }
 }
