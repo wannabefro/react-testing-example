@@ -24,6 +24,7 @@ describe('TodosList', () => {
       todos = [
         {
           id: 123,
+          dogs: 'dogs',
         }
       ];
       wrapper = shallow(<TodosList todos={todos} />);
@@ -32,6 +33,8 @@ describe('TodosList', () => {
     it('renders each of the todo items', () => {
       const todoItems = wrapper.find('TodoItem');
       expect(todoItems.length).toEqual(1);
+
+      expect(todoItems.first().props().dogs).toEqual('dogs');
     });
   });
 });

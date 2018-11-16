@@ -5,13 +5,14 @@ import * as utils from './utils';
 import App, { ENTER_KEY } from './App';
 
 test('creating a new todo', () => {
-  const { getByPlaceholderText, getByTestId, asFragment } = render(<App />);
+  const { getByPlaceholderText, container, asFragment } = render(<App />);
   const input = getByPlaceholderText('What needs to be done?');
 
   fireEvent.change(input, { target: { value: 'React testing' } });
   fireEvent.keyDown(input, { keyCode: 13 });
 
-  expect(getByTestId('todosList')).toHaveTextContent('React testing');
+  expect(container).toHaveTextContent('React testing');
+  expect(input).not.toHaveTextContent('React testing');
   expect(asFragment()).toMatchSnapshot();
 });
 
@@ -20,20 +21,17 @@ describe('App', () => {
   const id = 123;
 
   jest.mock('./TodosList');
-  jest.mock('./utils', () => ({
-    generateId: jest.fn(() => 123),
-  }));
   let wrapper;
 
-  beforeEach(() => {
-    utils.generateId = jest.fn(() => id);
-    wrapper = shallow(<App />);
-    wrapper.find('input').simulate('change', {
-      target: { value },
-    });
-  });
-
   describe('onKeyDown', () => {
+    beforeEach(() => {
+      utils.generateId = jest.fn(() => id);
+      wrapper = shallow(<App />);
+      wrapper.find('input').simulate('change', {
+        target: { value },
+      });
+    });
+
     describe('when the keycode is 13', () => {
       beforeEach(() => {
         wrapper.find('input').simulate('keyDown', { keyCode: ENTER_KEY, preventDefault: jest.fn()});

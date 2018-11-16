@@ -17,7 +17,6 @@ exports[`creating a new todo 1`] = `
     />
     <section
       class="main"
-      data-testid="todosList"
     >
       <ul
         class="todo-list"

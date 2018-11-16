@@ -8,7 +8,7 @@ const TodosList = ({ todos }) => {
   }
 
   return (
-    <section data-testid='todosList' className='main'>
+    <section className='main'>
       <ul className='todo-list'>
         {todos.map(todo => <TodoItem key={todo.id} {...todo} />)}
       </ul>
